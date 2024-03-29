@@ -1,8 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
+use App\Http\Controllers\Api\V1\Authentication\LoginController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+Route::name('app.')->prefix('app/')->whereNumber(['id'])->group(function (): void {
+    Route::name('account.')->prefix('account/')->group(function (): void {
+        Route::post(
+            'login',
+            LoginController::class
+        )->name('login');
+    });
+});
