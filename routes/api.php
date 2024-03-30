@@ -22,7 +22,7 @@ Route::name('app.')->prefix('app/')->whereNumber(['id'])->group(function (): voi
     Route::middleware(['auth:sanctum'])->group(function (): void {
 
         //Logout
-        Route::get(
+        Route::post(
             'logout',
             LogoutController::class
         )->name('logout');
