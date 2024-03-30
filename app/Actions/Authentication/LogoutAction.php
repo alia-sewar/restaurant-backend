@@ -6,7 +6,7 @@ namespace App\Actions\Authentication;
 
 use Illuminate\Support\Facades\Auth;
 
-final class LogoutAction
+final class  LogoutAction
 {
      public function __invoke(): void
      {

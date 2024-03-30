@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1\Authentication;
 
+use App\Actions\Authentication\LogoutAction;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class LogoutController extends Controller
         (new LogoutAction)();
 
         return sendSuccessResponse(
-            __('auth.success_logout ')
+            __('auth.success_logout')
         );
     }
 }
