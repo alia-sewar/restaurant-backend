@@ -12,12 +12,12 @@ class Item extends Model
     protected  $fillable = [
         'name',
         'is_active',
-        'created_by',
+        'added_by',
         'sub_category_id'
     ];
 
     function subCategory(): BelongsTo
     {
-        return $this->belongsTo(SUbCategory::class, 'sub_category_id', 'id');
+        return $this->belongsTo(SubCategory::class, 'sub_category_id', 'id');
     }
 }
