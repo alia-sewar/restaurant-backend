@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('levels', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->unsignedInteger('added_by')->default(0);
+            $table->unsignedInteger('number')->unique();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
