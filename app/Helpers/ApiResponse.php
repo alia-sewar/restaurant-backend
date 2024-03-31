@@ -15,7 +15,7 @@ use Illuminate\Http\JsonResponse;
  */
 function sendSuccessResponse(
     string $message = 'OK',
-    array|Arrayable|JsonSerializable|null $data = null,
+    /* array|Arrayable|JsonSerializable|null */ $data = null,
     int $status_code = 200
 ): JsonResponse {
     $response_data = [
