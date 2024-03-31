@@ -33,7 +33,7 @@ Route::name('app.')->prefix('app/')->whereNumber(['id'])->group(function (): voi
         )->name('logout');
 
         //Items
-        Route::name('items/')->prefix('items.')->group(function (): void {
+        Route::name('items.')->prefix('items/')->group(function (): void {
             Route::post(
                 '',
                 GetItemsController::class

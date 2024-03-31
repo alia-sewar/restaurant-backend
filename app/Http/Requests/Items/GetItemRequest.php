@@ -25,7 +25,7 @@ class GetItemRequest extends FormRequest
     {
         return [
             'search'    =>   'nullable|string|min:3|max:255',
-            'page'      =>   'required|number'
+            'page'      =>   'required|numeric'
         ];
     }
     protected function failedValidation(Validator $validator)
