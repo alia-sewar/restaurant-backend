@@ -1,25 +1,25 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1\Levels;
+namespace App\Http\Controllers\Api\V1\SubCategories;
 
 use App\Http\Controllers\Controller;
-use App\Models\Level;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
-class GetLevelsController extends Controller
+class GetCategoriesListController extends Controller
 {
     /**
      * Handle the incoming request.
      */
     public function __invoke(Request $request)
     {
-        $levels = Level::active()
+        $categories = Category::active()
             ->select('name', 'id')
             ->get();
 
         return sendSuccessResponse(
             __('messages.get_data'),
-            $levels
+            $categories
         );
     }
 }

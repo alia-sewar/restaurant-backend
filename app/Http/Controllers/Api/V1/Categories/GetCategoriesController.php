@@ -15,6 +15,7 @@ class GetCategoriesController extends Controller
     public function __invoke(GetCategoriesRequest $request)
     {
         $categories = Category::query()
+            ->with('addedBy')
             ->when(
                 $request->input('search'),
                 fn (Builder $builder) =>

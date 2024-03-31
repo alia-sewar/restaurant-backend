@@ -15,6 +15,7 @@ class GetSubCategoriesController extends Controller
     public function __invoke(GetSubCategoriesRequest $request)
     {
         $subCategories = SubCategory::query()
+            ->with('addedBy', 'category', 'level')
             ->when(
                 $request->input('search'),
                 fn (Builder $builder) =>

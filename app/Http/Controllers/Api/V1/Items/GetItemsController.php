@@ -16,7 +16,7 @@ class GetItemsController extends Controller
     public function __invoke(GetItemRequest $request)
     {
         $items = Item::query()
-            ->with('subCategory:id,name')
+            ->with('subCategory', 'addedBy')
             ->when(
                 $request->input('search'),
                 fn (Builder $builder) =>

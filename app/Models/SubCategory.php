@@ -13,20 +13,22 @@ class SubCategory extends Model
         'name',
         'is_active',
         'added_by',
+        'level_id',
         'category_id'
     ];
-
-
-
-    /**
-     * 
-     */
-    function category(): BelongsTo
+    public function addedBy(): BelongsTo
     {
-        return $this->belongsTo(Category::class, 'category_id', 'id');
+        return $this->belongsTo(User::class, 'added_by', 'id')
+            ->select('name', 'id');
     }
-    function level(): BelongsTo
+    public function category(): BelongsTo
     {
-        return $this->belongsTo(Level::class);
+        return $this->belongsTo(Category::class, 'category_id', 'id')
+            ->select('name', 'id');
+    }
+    public function level(): BelongsTo
+    {
+        return $this->belongsTo(Level::class, 'level_id', 'id')
+            ->select('name', 'id');
     }
 }

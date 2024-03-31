@@ -15,9 +15,14 @@ class Item extends Model
         'added_by',
         'sub_category_id'
     ];
-
-    function subCategory(): BelongsTo
+    public function addedBy(): BelongsTo
     {
-        return $this->belongsTo(SubCategory::class, 'sub_category_id', 'id');
+        return $this->belongsTo(User::class, 'added_by', 'id')
+            ->select('name', 'id');
+    }
+    public function subCategory(): BelongsTo
+    {
+        return $this->belongsTo(SubCategory::class, 'sub_category_id', 'id')
+            ->select('name', 'id');
     }
 }
