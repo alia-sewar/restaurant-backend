@@ -12,10 +12,15 @@ class Level extends Model
     protected  $fillable = [
         'name',
         'is_active',
-        'added_by',
+        'number',
     ];
     function subCategories(): HasMany
     {
         return $this->hasMany(SUbCategory::class, 'level_id', 'id');
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', true);
     }
 }

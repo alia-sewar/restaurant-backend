@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\V1\Categories\CreateCategoryController;
 use App\Http\Controllers\Api\V1\Categories\GetCategoriesController;
 use App\Http\Controllers\Api\V1\Items\CreateItemController;
 use App\Http\Controllers\Api\V1\Items\GetItemsController;
+use App\Http\Controllers\Api\V1\Levels\GetLevelsController;
 use App\Http\Controllers\Api\V1\SubCategories\CreateSubCategoryController;
 use App\Http\Controllers\Api\V1\SubCategories\GetSubCategoriesController;
 use Illuminate\Support\Facades\Route;
@@ -67,6 +68,13 @@ Route::name('app.')->prefix('app/')->whereNumber(['id'])->group(function (): voi
                 'create',
                 CreateSubCategoryController::class
             )->name('create');
+        });
+        //Levels
+        Route::name('levels.')->prefix('levels/')->group(function (): void {
+            Route::get(
+                '',
+                GetLevelsController::class
+            )->name('index');
         });
     });
 });
