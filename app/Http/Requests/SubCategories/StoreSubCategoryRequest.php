@@ -25,7 +25,8 @@ class StoreSubCategoryRequest extends FormRequest
     {
         return [
             'name'               =>    ['required', 'string', 'min:3', 'max:255', 'unique:sub_categories,name'],
-            //'level_id'           =>    ['required']
+            'level_id'           =>    ['required', 'numeric', 'exists:levels,id'],
+            'category_id'        =>    ['required', 'numeric', 'exists:categories,id']
         ];
     }
     protected function failedValidation(Validator $validator)
